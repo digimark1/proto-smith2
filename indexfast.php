@@ -324,24 +324,24 @@
                     $('#loading_image_div1').css('display', 'inline-block');
                     $('#loading_image_div').css('display', 'inline-block');
                     $('#pod_div').html('<img id="loading_pod" src="images/loading_apple.gif" width="6%" />');
-                    setTimeout(function () {
-
+                setTimeout(function () {
                     $.ajax({
                         type: 'POST',
                         async: true,
-                        data: {ref1: $('#ref1').val(), ref_type: $('#ref_type').val()},
-                        url: 'request/request2.php',
+                        url: 'https://cargotsi.mercurygate.net/MercuryGate/common/remoteService.jsp?userid=ProtoWSID&password=ProtoWebSvc2016!&'+encodeURI(xml_request),
+                        contentType: 'text/xml',
+                        dataType: 'xml',
                         beforeSend: function () {
                             // setting a timeout
                             $('#loading_image_div1').css('display', 'inline-block');
                             $('#loading_image_div').css('display', 'inline-block');
                         },
-                        success: function (data) {
+                        success: function (xml) {
                             //alert('aqui');
                             //alert(data.length);
                             //$('#table_sort tbody').append('<tr><td>Conway</td><td>Tim</td><td>tconway@earthlink.net</td></tr>');
-                            alert(data+' OMG');
-                            if (data.length == 0) {
+                            alert('OMG');
+                            /*if (data.length == 0) {
                                 alert('No information related for this reference');
                                 $('#loading_image_div1').css('display', 'none');
                                 $('#loading_image_div').css('display', 'none');
@@ -349,11 +349,11 @@
                                 $('#jumbotron2').hide();
                                 /*$('#header').css('width', '90%');*/
 
-                            } else {
+                            /*} else {
                                 alert('Single Item');
                                 $('#result_xml').html(data);
 
-                            }                            
+                            }  */                          
                         },
                         error: function (data) {
                             alert('There was an error');

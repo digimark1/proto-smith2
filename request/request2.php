@@ -78,7 +78,7 @@
    $count = 1;
   if(count($oidvalue_split)>1){
     echo 'Hello World';
-    while ( $count < count($oidvalue_split)) {
+    while ( $count <= count($oidvalue_split)) {
 
           $request2 = '<service-request>
               <service-id>WebExtractTransportDeep</service-id>
@@ -86,7 +86,7 @@
               <request-id>20141204-Test-3</request-id>
               <data>
               <!-- The Oid value is found using the OidLookup request. -->
-                <oid>'.$oidvalue[$count-1].'</oid>
+                <oid>'.$oidvalue_split[$count-1].'</oid>
               </data>
             </service-request>';
 
@@ -97,9 +97,14 @@
                   );
                      
                 $xml2 = httpPost("https://cargotsi.mercurygate.net/MercuryGate/common/remoteService.jsp", $params2);
+                $response2 = simplexml_load_string($xml2);
 
-         echo $oidvalue[$count-1];
-         $count++;
+                echo $oidvalue_split[$count-1].'<br>';
+                $decoded = base64_decode($response2->data);
+                 //echo $request2;
+                echo $decoded;
+                $count++;
+                //echo $count;
     }
   }else{
   

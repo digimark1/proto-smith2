@@ -25,7 +25,7 @@
                   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
                   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
                 <![endif]-->
-        <script src="cog_files/bootstrap-3.js" type="text/javascript"></script>        
+        <!-- <script src="cog_files/bootstrap-3.js" type="text/javascript"></script>-->       
     </head>
     <body>
         <div class="container" id="container">
@@ -44,7 +44,7 @@
                 </nav>
 
                 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-                <script src="js/jquery-1.js"></script>
+                <!-- <script src="js/jquery-1.js"></script> -->
 
                 <!-- Include all compiled plugins (below), or include individual files as needed --> 
                 <script src="js/bootstrap.js"></script>
@@ -307,6 +307,8 @@
                 } 
             });
 
+
+
             $('#button1').click(function () {
                 //alert('click');                
                 /*$('#infor').hide();----------------------------------------------
@@ -329,19 +331,19 @@
                     $.ajax({
                         type: 'POST',
                         async: true,
-                        data: {ref1: $('#ref1').val(), ref_type: $('#ref_type').val()},
-                        url: 'request/request2.php',
-                        beforeSend: function () {
+                        //data: {ref1: $('#ref1').val(), ref_type: $('#ref_type').val()},
+                        url: 'https://cargotsi.mercurygate.net/MercuryGate/common/remoteService.jsp?userid=ProtoWSID&password=ProtoWebSvc2016!',
+                        /*beforeSend: function () {
                             // setting a timeout
                             $('#loading_image_div1').css('display', 'inline-block');
                             $('#loading_image_div').css('display', 'inline-block');
-                        },
+                        },*/
                         success: function (data) {
                             //alert('aqui');
                             //alert(data.length);
                             //$('#table_sort tbody').append('<tr><td>Conway</td><td>Tim</td><td>tconway@earthlink.net</td></tr>');
-                            alert(data+' OMG');
-                            if (data.length == 0) {
+                            alert('success');
+                            /*if (data.length == 0) {
                                 alert('No information related for this reference');
                                 $('#loading_image_div1').css('display', 'none');
                                 $('#loading_image_div').css('display', 'none');
@@ -349,11 +351,11 @@
                                 $('#jumbotron2').hide();
                                 /*$('#header').css('width', '90%');*/
 
-                            } else {
+                            /*} else {
                                 alert('Single Item');
                                 $('#result_xml').html(data);
 
-                            }                            
+                            } */                           
                         },
                         error: function (data) {
                             alert('There was an error');
