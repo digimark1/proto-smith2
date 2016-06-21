@@ -105,6 +105,7 @@
                         </div>
                     </div>                
                 </div>
+                <div id="div_table_xml"></div>
                 <div id="result_xml">
                 </div>
                 <div id="loading_image_div">

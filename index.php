@@ -105,6 +105,8 @@
                         </div>
                     </div>                
                 </div>
+                <div id="div_table_xml"></div>
+                <div id="test_eta"></div>
                 <div id="result_xml">
                 </div>
                 <div id="loading_image_div">
@@ -340,7 +342,7 @@
                             //alert('aqui');
                             //alert(data.length);
                             //$('#table_sort tbody').append('<tr><td>Conway</td><td>Tim</td><td>tconway@earthlink.net</td></tr>');
-                            alert(data+' OMG');
+                            //alert(data+' OMG');
                             if (data.length == 0) {
                                 alert('No information related for this reference');
                                 $('#loading_image_div1').css('display', 'none');
@@ -350,9 +352,30 @@
                                 /*$('#header').css('width', '90%');*/
 
                             } else {
-                                alert('Single Item');
+                                //alert('Single Item');
                                 $('#result_xml').html(data);
+                                var eta_var = $('#result_xml masterbilloflading dates drop').find('date[type="earliest"]').html();
+                                // $(this).html();
+                                var eta_date = eta_var.split(" ");
+                                
 
+                                var status_array = [];
+                                var counter = 1;
+                                $('#result_xml masterbilloflading').find('shipments').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    $(this).html('');
+                                    //alert(counter);
+                                    counter++;
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+                                alert(counter);
+                                $('#result_xml masterbilloflading dates drop date[type="earliest"]').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    status_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                $('#test_eta').html('ESTIMATED DELIVERY DATE : ' + status_array.toString() + '---'+status_array.length);
                             }                            
                         },
                         error: function (data) {
