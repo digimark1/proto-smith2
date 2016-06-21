@@ -105,10 +105,13 @@
                         </div>
                     </div>                
                 </div>
-                <div id="div_table_xml"></div>
-                <div id="test_eta"></div>
-                <div id="result_xml">
+                <div id="div_table_xml">
+                    <table id="table_xml"></table>
                 </div>
+                <div id="test_eta" hidden></div>
+                <div id="result_xml" hidden>
+                </div>
+                <div id="result2_xml" hidden></div>
                 <div id="loading_image_div">
                     <img id="loading_picture" src="images/loading_apple.gif" />
                 </div>
@@ -354,12 +357,13 @@
                             } else {
                                 //alert('Single Item');
                                 $('#result_xml').html(data);
+                                $('#result2_xml').html(data);
                                 var eta_var = $('#result_xml masterbilloflading dates drop').find('date[type="earliest"]').html();
                                 // $(this).html();
                                 var eta_date = eta_var.split(" ");
                                 
 
-                                var status_array = [];
+                                var dates_array = [];
                                 var counter = 1;
                                 $('#result_xml masterbilloflading').find('shipments').each(function () {
                                     //$('#element2').append('<div>'+$(this).html()+'</div>');
@@ -369,13 +373,83 @@
                                     //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
                                 });
                                 alert(counter);
+
                                 $('#result_xml masterbilloflading dates drop date[type="earliest"]').each(function () {
                                     //$('#element2').append('<div>'+$(this).html()+'</div>');
-                                    status_array.push($(this).html());
+                                    dates_array.push($(this).html());
                                     //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
                                 });
 
-                                $('#test_eta').html('ESTIMATED DELIVERY DATE : ' + status_array.toString() + '---'+status_array.length);
+                                var origin_array = [];
+
+                                $('#result_xml masterbilloflading terminalinfo[type="Carrier"] origin address').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    origin_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                var origin_city_array = [];
+                                var origin_stateprovince_array = [];
+                                var origin_postalcode_array = [];
+
+                                $('#result_xml masterbilloflading terminalinfo[type="Carrier"] origin address city').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    origin_city_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                $('#result_xml masterbilloflading terminalinfo[type="Carrier"] origin address stateprovince').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    origin_stateprovince_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                $('#result_xml masterbilloflading terminalinfo[type="Carrier"] origin address postalcode').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    origin_postalcode_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                var destination_city_array = [];
+                                var destination_stateprovince_array = [];
+                                var destination_postalcode_array = [];
+
+                                $('#result_xml masterbilloflading terminalinfo[type="Carrier"] destination address city').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    destination_city_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                $('#result_xml masterbilloflading terminalinfo[type="Carrier"] destination address stateprovince').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    destination_stateprovince_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                $('#result_xml masterbilloflading terminalinfo[type="Carrier"] destination address postalcode').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    destination_postalcode_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+                                var billto_array = [];
+
+                                $('#result_xml masterbilloflading payment billto address name').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    billto_array.push($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
+
+                                $('#test_eta').html('ESTIMATED DELIVERY DATE : ' + dates_array.toString() +'---'+ dates_array.length);
+
+                                //$('#div_table_xml').append('Some text');
+                                for (var i = 0; i < dates_array.length; i++) {
+                                    $('#table_xml').append('<tr><td>'+dates_array[i]+'</td><td>'+billto_array[i]+'</td><td>'+origin_city_array[i]+', '+origin_stateprovince_array[i]+' '+origin_postalcode_array[i]+'</td><td>'+destination_city_array[i]+', '+destination_stateprovince_array[i]+' '+destination_postalcode_array[i]+'</td></tr>');
+                                }
+
+                                //$('#div_table_xml').html('<table id="table_xml"></table>');
+
                             }                            
                         },
                         error: function (data) {

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://leanstaffing.com/hf/shipment/history -->
+<html lang="en"><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>H&amp;F Logistcs</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./H&amp;F Logistcs_files/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">-->
+
+    <!-- js transitions -->
+    <!--<script src="http://ricostacruz.com/jquery.transit/jquery.transit.min.js"></script>-->
+
+    <!-- Custom CSS -->
+    <link href="./H&amp;F Logistcs_files/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="./H&amp;F Logistcs_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="./H&amp;F Logistcs_files/magnific-pop.css">
+
+    <link rel="stylesheet" href="./H&amp;F Logistcs_files/bootstrap-spinner.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="./H&amp;F Logistcs_files/jquery.dataTables.min.css">
+    <script src="./H&amp;F Logistcs_files/jquery.min.js"></script><style type="text/css"></style>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.3.js"></script>-->
+    <script type="text/javascript" src="./H&amp;F Logistcs_files/jquery.dataTables.min.js"></script>
+
+    <script src="./H&amp;F Logistcs_files/jquery.spinner.js"></script>
+
+    
+
+    <!--<script type="text/javascript" src="public/js/stupidtable.js"></script>-->
+
+</head>
+
+<body>
+    <!-- Navigation -->
+   <nav id="hf_navbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+       <div class="container">
+           <!-- Brand and toggle get grouped for better mobile display -->
+           <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar" id="bar1"></span>
+                   <span class="icon-bar" id="bar2"></span>
+                   <span class="icon-bar" id="bar3"></span>
+               </button>
+               <a id="logo_cont" class="navbar-brand" href="http://leanstaffing.com/hf/tracking"><img src="./H&amp;F Logistcs_files/logo.png" class="img-responsive" alt="Responsive image"></a>
+           </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://leanstaffing.com/hf/shipment/history#" id="a_home">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="http://leanstaffing.com/hf/shipment/history#" class="dropdown-toggle" data-toggle="dropdown" id="a_quotes">Quotes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://leanstaffing.com/hf/quote">New LTL Quote</a>
+                            </li>
+                            <li>
+                                <a href="http://leanstaffing.com/hf/quote/quote_result">LTL Quote Results</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="http://leanstaffing.com/hf/shipment/history#" class="dropdown-toggle" data-toggle="dropdown" id="a_ship">Shipment <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://leanstaffing.com/hf/shipment">Shipment</a>
+                            </li>
+                            <li>
+                                <a href="http://leanstaffing.com/hf/shipment/history">Shipment History</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="http://leanstaffing.com/hf/shipment/history#" class="dropdown-toggle" data-toggle="dropdown" id="a_ship">Manage <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://leanstaffing.com/hf/manage">New Location</a>
+                            </li>
+                            <li>
+                                <a href="http://leanstaffing.com/hf/manage/history">Locations List</a>
+                            </li>
+                            <li>
+                                <a href="http://leanstaffing.com/hf/item">New Item</a>
+                            </li>
+                            <li>
+                                <a href="http://leanstaffing.com/hf/item/history">Items List</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="http://leanstaffing.com/hf/tracking">Tracking</a>
+                    </li>
+                    <!--<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="blog-home-1.html">Blog Home 1</a>
+                            </li>
+                            <li>
+                                <a href="blog-home-2.html">Blog Home 2</a>
+                            </li>
+                            <li>
+                                <a href="blog-post.html">Blog Post</a>
+                            </li>
+                        </ul>
+                    </li>-->
+                    <!--<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="full-width.html">Full Width Page</a>
+                            </li>
+                            <li>
+                                <a href="sidebar.html">Sidebar Page</a>
+                            </li>
+                            <li>
+                                <a href="faq.html">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="404.html">404</a>
+                            </li>
+                            <li>
+                                <a href="pricing.html">Pricing Table</a>
+                            </li>
+                        </ul>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav><!-- Page Content -->
+        <div class="container">
+
+            <!-- Page Heading/Breadcrumbs -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Shipment History
+                        <small></small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="http://leanstaffing.com/hf/shipment/index.html">Home</a>
+                        </li>
+                        <li class="active">Shipment History</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <!-- Project One -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Order Number</th>
+                                        <th>Customer Name</th>
+                                        <th>Reference</th>
+                                        <th>Origin</th>
+                                        <th>Destination</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <form class="form-inline" role="form">
+                                                <div class="input-group spinner form-group">
+                                                    <div class="input-group spinner" data-trigger="spinner">
+                                                        <input type="text" class="form-control text-center" value="1" data-rule="quantity">
+                                                        <div class="input-group-addon">
+                                                            <a href="javascript:;" class="spin-up" data-spin="up"><i class="fa fa-caret-up"></i></a>
+                                                            <a href="javascript:;" class="spin-down" data-spin="down"><i class="fa fa-caret-down"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>                    
+
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-primary btn-md">
+                                                        <span class="glyphicon glyphicon-filter"></span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form class="form-inline" role="form">
+                                                <div class="input-group spinner">
+                                                    <input type="text" class="form-control" value="" style="border-radius: 4px;">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-primary btn-md">
+                                                        <span class="glyphicon glyphicon-filter"></span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form class="form-inline" role="form">
+                                                <div class="input-group spinner">
+                                                    <input type="text" class="form-control" value="" style="border-radius: 4px;">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-primary btn-md">
+                                                        <span class="glyphicon glyphicon-filter"></span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form class="form-inline" role="form">
+                                                <div class="input-group spinner">
+                                                    <input type="text" class="form-control" value="" style="border-radius: 4px;">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-primary btn-md">
+                                                        <span class="glyphicon glyphicon-filter"></span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form class="form-inline" role="form">
+                                                <div class="input-group spinner">
+                                                    <input type="text" class="form-control" value="" style="border-radius: 4px;">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button type="button" class="btn btn-primary btn-md">
+                                                        <span class="glyphicon glyphicon-filter"></span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>                                        
+                                        <td></td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>  
+                                            <button class="arrow1" type="submit" style="border: 0; background: transparent">
+                                                <img src="./H&amp;F Logistcs_files/levels.png" alt="submit">
+                                            </button>  
+                                        </td>
+                                        <td>495</td>
+                                        <td> Harris&amp;Ford</td>
+                                        <td>SSI6288377</td>
+                                        <td>Valliant, OK 74764</td>
+                                        <td>Indianapolis, 46268</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-xs">Print BOL</button> 
+                                             <button type="button" class="btn btn-primary btn-xs">Print POD</button> 
+                                            <button type="button" class="btn btn-primary btn-xs">Invoice</button> 
+
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>  
+                                            <button class="arrow2" type="submit" style="border: 0; background: transparent">
+                                                <img src="./H&amp;F Logistcs_files/levels.png" alt="submit">
+                                            </button>  
+                                        </td>
+                                        <td>496</td>
+                                        <td> Harris&amp;Ford</td>
+                                        <td>SSI6288378</td>
+                                        <td>Valliant, OK 74764</td>
+                                        <td>Indianapolis, 46268</td>
+                                        <td> 
+                                           <button type="button" class="btn btn-primary btn-xs">Print BOL</button> 
+                                             <button type="button" class="btn btn-primary btn-xs">Print POD</button> 
+                                            <button type="button" class="btn btn-primary btn-xs">Invoice</button> 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="panel-body">
+                            <div id="table1" style="display: none;">
+                                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="DataTables_Table_0"></label></div><table class="myTable dataTable no-footer" style="  border-top-left-radius: 5px; border-top-right-radius: 5px;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">  
+                                    <thead>  
+                                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Package Number: activate to sort column descending" style="width: 0px;">Package Number</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Commodity: activate to sort column ascending" style="width: 0px;">Commodity</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Delivered Date: activate to sort column ascending" style="width: 0px;">Delivered Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending" style="width: 0px;">Quantity</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Package Type: activate to sort column ascending" style="width: 0px;">Package Type</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Freight Class: activate to sort column ascending" style="width: 0px;">Freight Class</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Weight: activate to sort column ascending" style="width: 0px;">Weight</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Height: activate to sort column ascending" style="width: 0px;">Height</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Lenght: activate to sort column ascending" style="width: 0px;">Lenght</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="NMFC: activate to sort column ascending" style="width: 0px;">NMFC</th></tr>  
+                                    </thead>  
+                                    <tbody>  
+                                        
+                                    <tr role="row" class="odd">  
+                                            <td class="sorting_1">367</td>  
+                                            <td>Paper Rolls</td>  
+                                            <td>1/6/2016</td>  
+                                            <td>1</td>  
+                                            <td>PALLETS</td>
+                                            <td>70</td>  
+                                            <td>600</td>  
+                                            <td>34</td>  
+                                            <td>36</td>  
+                                            <td>16</td>
+                                        </tr></tbody>
+                                </table><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a><span><a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" id="DataTables_Table_0_next">Next</a></div></div>
+                             </div>
+                            
+                            <div id="table2" style="display: none;">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="DataTables_Table_1_length"><label>Show <select name="DataTables_Table_1_length" aria-controls="DataTables_Table_1" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="DataTables_Table_1_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="DataTables_Table_1"></label></div><table class="myTable dataTable no-footer" style="  border-top-left-radius: 5px; border-top-right-radius: 5px;" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">  
+                                    <thead>  
+                                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Package Number: activate to sort column descending" style="width: 0px;">Package Number</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Commodity: activate to sort column ascending" style="width: 0px;">Commodity</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Delivered Date: activate to sort column ascending" style="width: 0px;">Delivered Date</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending" style="width: 0px;">Quantity</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Package Type: activate to sort column ascending" style="width: 0px;">Package Type</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Freight Class: activate to sort column ascending" style="width: 0px;">Freight Class</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Weight: activate to sort column ascending" style="width: 0px;">Weight</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Height: activate to sort column ascending" style="width: 0px;">Height</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="Lenght: activate to sort column ascending" style="width: 0px;">Lenght</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1" colspan="1" aria-label="NMFC: activate to sort column ascending" style="width: 0px;">NMFC</th></tr>  
+                                    </thead>  
+                                    <tbody>  
+                                        
+                                    <tr role="row" class="odd">  
+                                            <td class="sorting_1">368</td>  
+                                            <td>Alcohol</td>  
+                                            <td>15/6/2016</td>  
+                                            <td>20</td>  
+                                            <td>PALLETS</td>
+                                            <td>80</td>  
+                                            <td>500</td>  
+                                            <td>50</td>  
+                                            <td>80</td>  
+                                            <td>10</td>
+                                        </tr></tbody>  
+                                </table><div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_1" data-dt-idx="0" tabindex="0" id="DataTables_Table_1_previous">Previous</a><span><a class="paginate_button current" aria-controls="DataTables_Table_1" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="DataTables_Table_1" data-dt-idx="2" tabindex="0" id="DataTables_Table_1_next">Next</a></div></div>
+                            </div>
+                        </div>
+
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <ul class="pagination" style="list-style: none; margin: 0px;">
+                                        <li>
+                                            <a href="http://leanstaffing.com/hf/shipment/history#">«</a>
+                                        </li>
+                                        <li class="active">
+                                            <a href="http://leanstaffing.com/hf/shipment/history">1</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://leanstaffing.com/hf/shipment/history">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://leanstaffing.com/hf/shipment/history">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://leanstaffing.com/hf/shipment/history">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://leanstaffing.com/hf/shipment/history">5</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://leanstaffing.com/hf/shipment/history">»</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <form class="form-horizontal" id="page-rows-form">
+                                        <label class="control-label col-md-6">Itemps per Page: </label>
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option value="5">5</option>
+                                                <option value="10" selected="selected">10</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="25">25</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <a id="refresh1" class="pull-right" href="http://leanstaffing.com/hf/shipment/history#"><span class="fa fa-refresh"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © H&amp;F Logistcs 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <script src="./H&amp;F Logistcs_files/shipment_history.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.myTable').DataTable({
+            });
+        });
+    </script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./H&amp;F Logistcs_files/bootstrap.min.js"></script>
+
+    <script>
+
+        $.fn.refreshMe = function (opts) {
+
+            var $this = this,
+                    defaults = {
+                        ms: 1500,
+                        parentSelector: '.table',
+                        started: function () {},
+                        completed: function () {}
+                    },
+            settings = $.extend(defaults, opts);
+
+            var par = this.parents(settings.parentSelector);
+            var panelToRefresh = par.find('.refresh-container');
+            var dataToRefresh = par.find('.refresh-data');
+
+            var ms = settings.ms;
+            var started = settings.started;     //function before timeout
+            var completed = settings.completed; //function after timeout
+
+            $this.click(function () {
+                $this.addClass("fa-spin");
+                panelToRefresh.show();
+                if (dataToRefresh) {
+                    started(dataToRefresh);
+                }
+                setTimeout(function () {
+                    if (dataToRefresh) {
+                        completed(dataToRefresh);
+                    }
+                    panelToRefresh.fadeOut(800);
+                    $this.removeClass("fa-spin");
+                }, ms);
+                return false;
+            })//click
+
+        }/* end function refreshMe */
+
+        $(document).ready(function () {
+
+            $('#refresh1').refreshMe({
+                started: function (ele) {
+                    ele.html("Getting new data..")
+                },
+                completed: function (ele) {
+                    ele.html("This is the new data after refresh..")
+                }
+            });
+        });
+    </script>
+
+
+
+</body></html>
