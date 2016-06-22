@@ -66,7 +66,7 @@
 
                                     <select id="ref_type" name="ref_type">
                                         <!--<option value="reference">-REF-</option>-->
-                                        <option selected value="BOL">-BOL-</option>
+                                        <!--<<option selected value="BOL">-BOL-</option>-->
                                         <option value="PO Number">-PO Number-</option>
                                         <option value="PRO">-PRO-</option>
                                     </select>
@@ -345,7 +345,7 @@
                             //alert('aqui');
                             //alert(data.length);
                             //$('#table_sort tbody').append('<tr><td>Conway</td><td>Tim</td><td>tconway@earthlink.net</td></tr>');
-                            //alert(data+' OMG');
+                            alert(data+' OMG');
                             if (data.length == 0) {
                                 alert('No information related for this reference');
                                 $('#loading_image_div1').css('display', 'none');

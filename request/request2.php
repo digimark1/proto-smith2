@@ -4,8 +4,29 @@
     $reference_type = $_POST['ref_type'];//'';//
      //echo 'Your Reference number is :'.$reference_number;
      //echo '<br>';
+        function httpPost($url, $params) {
+          $postData = '';
+          //create name value pairs seperated by &
+          foreach ($params as $k => $v) {
+              $postData .= $k . '=' . $v . '&';
+          }
+          rtrim($postData, '&');
 
-    function httpPost($url, $params) {
+          $ch = curl_init();
+
+          curl_setopt($ch, CURLOPT_URL, $url);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_HEADER, false);
+          curl_setopt($ch, CURLOPT_POST, count($postData));
+          curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+
+          $output = curl_exec($ch);
+
+          curl_close($ch);
+          return $output;
+      }
+
+    function httpPost2($url, $params) {
         $postData = '';
         //create name value pairs seperated by &
         foreach ($params as $k => $v) {
@@ -13,18 +34,51 @@
         }
         rtrim($postData, '&');
 
-        $ch = curl_init();
+        $ch1 = curl_init();
+        $ch2 = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, count($postData));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch1, CURLOPT_URL, $url);
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch1, CURLOPT_HEADER, false);
+        curl_setopt($ch1, CURLOPT_POST, count($postData));
+        curl_setopt($ch1, CURLOPT_POSTFIELDS, $postData);
 
-        $output = curl_exec($ch);
+        curl_setopt($ch2, CURLOPT_URL, $url);
+        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch2, CURLOPT_HEADER, false);
+        curl_setopt($ch2, CURLOPT_POST, count($postData));
+        curl_setopt($ch2, CURLOPT_POSTFIELDS, $postData);
 
-        curl_close($ch);
-        return $output;
+        $mch = curl_multi_init();
+
+        curl_multi_add_handle($mch,$ch1);
+        curl_multi_add_handle($mch,$ch2);
+
+        $mrc = '';
+        $active = null;
+        //-----execute the handles----//
+        //do {
+                $mrc .= curl_multi_exec($mch, $active);
+         //   } while ($mrc == CURLM_CALL_MULTI_PERFORM);
+
+           // while ($active && $mrc == CURLM_OK) {
+            //    if (curl_multi_select($mch) != -1) {
+              //      do {
+                     //   $mrc .= curl_multi_exec($mch, $active);
+              //      } while ($mrc == CURLM_CALL_MULTI_PERFORM);
+                //}
+           // }
+
+            //close the handles
+            curl_multi_remove_handle($mch, $ch1);
+            curl_multi_remove_handle($mch, $ch2);
+            curl_multi_close($mch);
+
+        //$output = curl_exec($ch);
+
+        //curl_close($ch);
+        return $mrc;
+        //return 'Multishipment';
     }
 
     if ($reference_type == 'BOL') {
@@ -53,7 +107,7 @@
             <searchBy>reference</searchBy>
             <searchValue>'.$reference_number.'</searchValue>
             <searchModifier>
-              <searchBy>'.$reference_type.'</searchBy>     <!-- This is the RefType name to use with searchValue -->
+              <searchBy></searchBy>     <!-- This is the RefType name to use with searchValue -->
             </searchModifier>
           </data>
         </service-request>';
@@ -125,11 +179,12 @@
                 "request" => urlencode($request2)
             );
                
-          $xml2 = httpPost("https://cargotsi.mercurygate.net/MercuryGate/common/remoteService.jsp", $params2);
+          $xml2 = httpPost2("https://cargotsi.mercurygate.net/MercuryGate/common/remoteService.jsp", $params2);
           
           $response2 = simplexml_load_string($xml2);
           $decoded = base64_decode($response2->data);
           //echo '------';
-            echo $decoded;
+          echo $decoded;
+          echo $xml2;
   }
 ?>
