@@ -335,7 +335,7 @@
                         type: 'POST',
                         async: true,
                         data: {ref1: $('#ref1').val(), ref_type: $('#ref_type').val()},
-                        url: 'request/request2.php',
+                        url: 'request/request2_2.php',
                         beforeSend: function () {
                             // setting a timeout
                             $('#loading_image_div1').css('display', 'inline-block');
@@ -357,7 +357,7 @@
                             } else {
                                 //alert('Single Item');
                                 $('#result_xml').html(data);
-                                $('#result2_xml').html(data);
+                                //$('#result2_xml').html(data);
                                 var eta_var = $('#result_xml masterbilloflading dates drop').find('date[type="earliest"]').html();
                                 // $(this).html();
                                 var eta_date = eta_var.split(" ");
@@ -372,7 +372,7 @@
                                     counter++;
                                     //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
                                 });
-                                alert(counter);
+                                //alert(counter);
 
                                 $('#result_xml masterbilloflading dates drop date[type="earliest"]').each(function () {
                                     //$('#element2').append('<div>'+$(this).html()+'</div>');
@@ -432,20 +432,41 @@
                                     //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
                                 });
 
-                                var billto_array = [];
+                                $('#result_xml masterbilloflading payment billto address contacts contact').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    $(this).html('');
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
 
+                                var billto_array = [];
+                                var countman = 0;
                                 $('#result_xml masterbilloflading payment billto address name').each(function () {
                                     //$('#element2').append('<div>'+$(this).html()+'</div>');
                                     billto_array.push($(this).html());
+                                    countman++;
+                                   // alert(countman);
                                     //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
                                 });
+
+                                var bol_array = [];
+
+
+                                $('#result_xml masterbilloflading referencenumbers referencenumber[type="BOL"][isprimary="true"]').each(function () {
+                                    //$('#element2').append('<div>'+$(this).html()+'</div>');
+                                    bol_array.push($(this).html());
+                                    //alert($(this).html());
+                                    //$('#element2').append('<div>'+$('ShipmentStatus StatusDetails StatusDetail StatusCode').html()+'</div>');
+                                });
+
 
 
                                 $('#test_eta').html('ESTIMATED DELIVERY DATE : ' + dates_array.toString() +'---'+ dates_array.length);
 
                                 //$('#div_table_xml').append('Some text');
                                 for (var i = 0; i < dates_array.length; i++) {
-                                    $('#table_xml').append('<tr><td>'+dates_array[i]+'</td><td>'+billto_array[i]+'</td><td>'+origin_city_array[i]+', '+origin_stateprovince_array[i]+' '+origin_postalcode_array[i]+'</td><td>'+destination_city_array[i]+', '+destination_stateprovince_array[i]+' '+destination_postalcode_array[i]+'</td></tr>');
+                                    $('#table_xml').append('<tr><td>'+bol_array.length+'-'+'</td><td>'+billto_array[i]+'</td><td>'+bol_array[i]+'</td><td>'+origin_city_array[i]+', '+origin_stateprovince_array[i]+' '+origin_postalcode_array[i]+'</td><td>'+destination_city_array[i]+', '+destination_stateprovince_array[i]+' '+destination_postalcode_array[i]+'</td><td id="bol_'+i+'">BOL_DOC</td></tr>');
+                                    //$('#table_xml').append('<tr><td>'+bol_array.length+'-'+billto_array.length+origin_city_array.length+destination_city_array.length+'</td><td>'+billto_array[i]+'</td><td>'+bol_array[i]+'</td><td>'+origin_city_array[i]+', '+origin_stateprovince_array[i]+' '+origin_postalcode_array[i]+'</td><td>'+destination_city_array[i]+', '+destination_stateprovince_array[i]+' '+destination_postalcode_array[i]+'</td><td id="bol_'+i+'">BOL_DOC</td></tr>');
+
                                 }
 
                                 //$('#div_table_xml').html('<table id="table_xml"></table>');
@@ -464,7 +485,7 @@
                         type: 'POST',
                         async: true,
                         data: {ref1: $('#ref1').val()},
-                        url: 'request/request3.php',
+                        url: 'request/request3_2.php',
                         success: function (data) {
                             $('#document_bol_text').html(data);
                             var document_bol_content = $('#document_bol_text Documents Document').find('content').html();
